@@ -9,8 +9,11 @@ import org.spout.api.command.annotated.SimpleAnnotatedCommandExecutorFactory;
 import org.spout.api.command.annotated.SimpleInjector;
 import org.spout.api.plugin.CommonPlugin;
 
-
-public class ${artifactId} extends CommonPlugin {
+/**
+ * If you have found this useful, please let me know.
+ * @author Craig <tenowg at thedemgel.com>
+ */
+public class ${artifact`Id} extends CommonPlugin {
 	private static ${artifactId} instance;
 	
 	@Override
