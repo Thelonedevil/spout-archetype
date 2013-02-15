@@ -1,5 +1,6 @@
 package ${package}.commands;
 
+import org.spout.api.command.annotated.CommandPermissions;
 import org.spout.api.command.CommandContext;
 import org.spout.api.command.CommandSource;
 import org.spout.api.command.annotated.Command;
@@ -13,7 +14,8 @@ public class PlayerCommands {
 		this.plugin = instance;
 	}
 
-	@Command(aliases = "Command", usage = "No Usage, replace this command", desc = "This is just an Example. Replace it.", min = 0, max = 0)
+	@Command(aliases = {"command", "cmd"}, usage = "No Usage, replace this command", desc = "This is just an Example. Replace it.", min = 0, max = 0)
+	@CommandPermissions("${artifactId}.some.permission")
 	public void aCommand(CommandContext args, CommandSource source) throws CommandException {
 		// Do Some Command
 	}

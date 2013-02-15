@@ -17,6 +17,11 @@ public class ${artifactId} extends CommonPlugin {
 	private static ${artifactId} instance;
 	
 	@Override
+	public void onLoad() {
+		setInstance(this);
+	}
+
+	@Override
 	public void onEnable() {
 		//Commands
 		CommandRegistrationsFactory<Class<?>> commandRegFactory = new AnnotatedCommandRegistrationFactory(new SimpleInjector(this), new SimpleAnnotatedCommandExecutorFactory());
