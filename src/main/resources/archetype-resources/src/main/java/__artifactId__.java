@@ -13,7 +13,7 @@ import org.spout.api.plugin.CommonPlugin;
  * If you have found this useful, please let me know.
  * @author Craig <tenowg at thedemgel.com>
  */
-public class ${artifact`Id} extends CommonPlugin {
+public class ${artifactId} extends CommonPlugin {
 	private static ${artifactId} instance;
 	
 	@Override
