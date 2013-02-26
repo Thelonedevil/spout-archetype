@@ -7,21 +7,4 @@
 	<name>Archetype - spout-archetype</name>
 	<url>http://www.spout.org</url>
 	<description>Basic structure for a Spout Server plugin, contains all needed files and structures needed to start a Plugin</description>
-	<!-- <dependencies>
-		<dependency>
-			<groupId>org.spout</groupId>
-			<artifactId>spoutapi</artifactId>
-			<version>dev-SNAPSHOT</version>
-		</dependency>
-	</dependencies>
-	<repositories>
-		<repository>
-			<id>spout-repo</id>
-			<url>http://repo.spout.org</url>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
-		</repository>
-	</repositories> -->
 </project>
