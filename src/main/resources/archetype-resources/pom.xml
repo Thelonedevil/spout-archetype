@@ -21,7 +21,8 @@
 		<spoutVersion>dev-SNAPSHOT</spoutVersion>
 		<buildNumber>0</buildNumber>
 		<mainClass>${package}.${artifactId}</mainClass>
-		<!-- add plugin dependancies in the format of [Vanilla,Test] -->
+		<!-- add plugin dependancies in the format of Vanilla,Test  -->
+		<!-- Do not add the [] around the dependancies here, that is handled at compile -->
 		<depends></depends>
 	</properties>
 
