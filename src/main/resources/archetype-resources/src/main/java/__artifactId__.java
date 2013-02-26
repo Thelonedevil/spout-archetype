@@ -2,7 +2,6 @@ package ${package};
 
 import ${package}.commands.PlayerCommands;
 import ${package}.configuration.${artifactId}Configuration;
-import org.spout.api.Spout;
 import org.spout.api.command.CommandRegistrationsFactory;
 import org.spout.api.command.RootCommand;
 import org.spout.api.command.annotated.AnnotatedCommandRegistrationFactory;
@@ -17,7 +16,7 @@ import org.spout.api.plugin.CommonPlugin;
 public class ${artifactId} extends CommonPlugin {
 	private static ${artifactId} instance;
 	private ${artifactId}Configuration config;
-	
+
 	@Override
 	public void onLoad() {
 		setInstance(this);
@@ -34,14 +33,14 @@ public class ${artifactId} extends CommonPlugin {
 		root.addSubCommands(this, PlayerCommands.class, commandRegFactory);
 
 		getEngine().getEventManager().registerEvents(new EListener(this), this);
-		Spout.getLogger().info("enabled.");
+		getLogger().info("enabled.");
 	}
 
 	@Override
 	public void onDisable() {
-		Spout.getLogger().info("disabled.");
+		getLogger().info("disabled.");
 	}
-	
+
 	private static void setInstance(${artifactId} plugin) {
 		instance = plugin;
 	}
