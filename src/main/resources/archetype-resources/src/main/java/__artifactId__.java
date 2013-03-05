@@ -28,7 +28,7 @@ public class ${artifactId} extends CommonPlugin {
 	@Override
 	public void onEnable() {
 		//Commands
-		CommandRegistrationsFactory<Class<?>> commandRegFactory = new AnnotatedCommandRegistrationFactory(new SimpleInjector(this), new SimpleAnnotatedCommandExecutorFactory());
+		CommandRegistrationsFactory<Class<?>> commandRegFactory = new AnnotatedCommandRegistrationFactory(getEngine(), new SimpleAnnotatedCommandExecutorFactory());
 		RootCommand root = getEngine().getRootCommand();
 		root.addSubCommands(this, PlayerCommands.class, commandRegFactory);
 
