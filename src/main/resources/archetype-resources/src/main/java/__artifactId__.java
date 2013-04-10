@@ -1,7 +1,5 @@
-package ${package};
+package ${package}.${artifactId};
 
-import ${package}.commands.PlayerCommands;
-import ${package}.configuration.${artifactId}Configuration;
 import org.spout.api.command.CommandRegistrationsFactory;
 import org.spout.api.command.RootCommand;
 import org.spout.api.command.annotated.AnnotatedCommandRegistrationFactory;
@@ -9,12 +7,15 @@ import org.spout.api.command.annotated.SimpleAnnotatedCommandExecutorFactory;
 import org.spout.api.command.annotated.SimpleInjector;
 import org.spout.api.plugin.CommonPlugin;
 
+import ${package}.commands.PlayerCommands;
+import ${package}.configuration.${artifactId}Configuration;
+
 /**
  * If you have found this useful, please let me know.
  * @author Craig <tenowg at thedemgel.com>
  */
-public class ${artifactId} extends CommonPlugin {
-	private static ${artifactId} instance;
+public class ${artifactId}Plugin extends CommonPlugin {
+	private static ${artifactId}Plugin instance;
 	private ${artifactId}Configuration config;
 
 	@Override
@@ -41,11 +42,11 @@ public class ${artifactId} extends CommonPlugin {
 		getLogger().info("disabled.");
 	}
 
-	private static void setInstance(${artifactId} plugin) {
+	private static void setInstance(${artifactId}Plugin plugin) {
 		instance = plugin;
 	}
 
-	public static ${artifactId} getInstance() {
+	public static ${artifactId}Plugin getInstance() {
 		return instance;
 	}
 

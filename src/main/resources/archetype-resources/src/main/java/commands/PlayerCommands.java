@@ -5,7 +5,8 @@ import org.spout.api.command.CommandContext;
 import org.spout.api.command.CommandSource;
 import org.spout.api.command.annotated.Command;
 import org.spout.api.exception.CommandException;
-import ${package}.${artifactId};
+
+import ${package}.${artifactId}.${artifactId}Plugin;
 
 public class PlayerCommands {
 	private final ${artifactId} plugin;
