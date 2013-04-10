@@ -63,3 +63,13 @@ TODO: need to add Eclipse tutorial on how to add an archetype
 NetBeans Tutorial
 -----------------
 TODO: need to add NetBeans tutorial on how to add an archetype
+
+Building from Source
+--------------------
+Assuming you have Maven installed on your system, navigate to the directory you would like to place the source code in and run
+
+	git clone git://github.com/tenowg/spout-archetype.git
+	cd spout-archetype
+	mvn clean install archetype:update-local-catalog
+
+The archetype is now installed on your local system, and can be accessed in any of the methods outlined above.
