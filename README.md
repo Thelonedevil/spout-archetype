@@ -27,6 +27,24 @@ Repository Settings
 * Version = 1.0
 * GroupID = com.thedemgel
 
+Using this Archetype from the Command Line
+------------------------------------------
+You will need a copy of Maven 2 or 3 installed on your system. You can check if you have one by running `mvn --version` in the command line. Now, navigate to the directory you would like to place your project in and run
+
+	mvn archetype:generate -DarchetypeArtifactId=spout-archetype -DarchetypeGroupId=com.thedemgel -DarchetypeVersion=1.1 -DarchetypeRepository=http://repository-tenowg.forge.cloudbees.com/release/
+
+After Maven downloads the archetype once, you can omit the `-DarchetypeRepository` flag to use the one on your local system. The archetype will also accept the following flags:
+
+* `artifactId` the identifier for your project. For example, this project has the artifactId `spout-archetype`.
+* `groupId` by convention, this is the reverse of your web address (i.e. `com.awesomeplugins`), and if you do not have one use `me.yourname`.
+* `version` the version of your plugin.
+* `-DpluginName` allows you to specify the name of your plugin (i.e. `BetterMobs`, `ArcheryTools`). Defaults to `artifactId`.
+* `package` allows you to change the package of your main heirarchy. Defaults to `groupId.artifactId`.
+
+Note that if you do not specify these flags, Maven will prompt you for them. A complete example might look like this:
+
+	mvn archetype:generate -DarchetypeArtifactId=spout-archetype -DarchetypeGroupId=com.thedemgel -DarchetypeVersion=1.1 -DarchetypeRepository=http://repository-tenowg.forge.cloudbees.com/release/ -DartifactId=test -DgroupId=me.testmaker -Dversion=1.0.0 -DpluginName=Test -Dpackage=me.testmaker.plugins.test
+
 Eclipse Tutorial
 ----------------
 TODO: need to add Eclipse tutorial on how to add an archetype
