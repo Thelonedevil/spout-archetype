@@ -72,4 +72,4 @@ Assuming you have Maven installed on your system, navigate to the directory you 
 	cd spout-archetype
 	mvn clean install archetype:update-local-catalog
 
-The archetype is now installed on your local system, and can be accessed in any of the methods outlined above.
+The archetype is now installed on your local system, and can be accessed in any of the methods outlined above. In particular, you can be sure to use the version in your local system by running `mvn archetype:generate` with the `-DarchetypeCatalog=local` flag.
