@@ -1,21 +1,24 @@
-package ${package}.${artifactId}.configuration;
+package ${package}.configuration;
 
 import org.spout.api.exception.ConfigurationException;
 import org.spout.api.util.config.ConfigurationHolderConfiguration;
 import org.spout.api.util.config.yaml.YamlConfiguration;
 import org.spout.api.util.config.ConfigurationHolder;
 
-import ${package}.${artifactId};
+import ${package}.${pluginName}Plugin;
 
 import java.io.File;
 import java.util.logging.Level;
 
-public class ${artifactId}Configuration extends ConfigurationHolderConfiguration {
+/**
+ * Provides an example of a class that has a confirguration file.
+ */
+public class ${pluginName}Configuration extends ConfigurationHolderConfiguration {
 
 	// Messages
 	public static final ConfigurationHolder SOME_SETTING = new ConfigurationHolder("SomeSetting", "some", "setting");
 
-	public ${artifactId}Configuration(File dataFolder) {
+	public ${pluginName}Configuration(File dataFolder) {
 		super(new YamlConfiguration(new File(dataFolder, "config.yml")));
 	}
 
@@ -25,7 +28,7 @@ public class ${artifactId}Configuration extends ConfigurationHolderConfiguration
 			super.load();
 			super.save();
 		} catch (ConfigurationException e) {
-			${artifactId}Plugin.getInstance().getLogger().log(Level.WARNING, "Error loading ${artifactId} configuration: ", e);
+			${pluginName}Plugin.getInstance().getLogger().log(Level.WARNING, "Error loading ${pluginName} configuration: ", e);
 		}
 	}
 
@@ -34,7 +37,7 @@ public class ${artifactId}Configuration extends ConfigurationHolderConfiguration
 		try {
 			super.save();
 		} catch (ConfigurationException e) {
-			${artifactId}.getInstance().getLogger().log(Level.WARNING, "Error saving ${artifactId} configuration: ", e);
+			${pluginName}Plugin.getInstance().getLogger().log(Level.WARNING, "Error saving ${pluginName} configuration: ", e);
 		}
 	}
 }

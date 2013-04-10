@@ -1,4 +1,4 @@
-package ${package}.${artifactId};
+package ${package};
 
 import org.spout.api.command.CommandRegistrationsFactory;
 import org.spout.api.command.RootCommand;
@@ -7,33 +7,35 @@ import org.spout.api.command.annotated.SimpleAnnotatedCommandExecutorFactory;
 import org.spout.api.command.annotated.SimpleInjector;
 import org.spout.api.plugin.CommonPlugin;
 
-import ${package}.commands.PlayerCommands;
-import ${package}.configuration.${artifactId}Configuration;
+import ${package}.command.${pluginName}Commands;
+import ${package}.configuration.${pluginName}Configuration;
 
 /**
  * If you have found this useful, please let me know.
  * @author Craig <tenowg at thedemgel.com>
  */
-public class ${artifactId}Plugin extends CommonPlugin {
-	private static ${artifactId}Plugin instance;
-	private ${artifactId}Configuration config;
+public class ${pluginName}Plugin extends CommonPlugin {
+	private static ${pluginName}Plugin instance;
+	private ${pluginName}Configuration config;
 
 	@Override
 	public void onLoad() {
 		setInstance(this);
-		config = new ${artifactId}Configuration(getDataFolder());
+		config = new ${pluginName}Configuration(getDataFolder());
 		config.load();
 		getLogger().info("loaded.");
 	}
 
 	@Override
 	public void onEnable() {
-		//Commands
+		// Register Commands
 		CommandRegistrationsFactory<Class<?>> commandRegFactory = new AnnotatedCommandRegistrationFactory(getEngine(), new SimpleInjector(this), new SimpleAnnotatedCommandExecutorFactory());
 		RootCommand root = getEngine().getRootCommand();
-		root.addSubCommands(this, PlayerCommands.class, commandRegFactory);
+		root.addSubCommands(this, ${pluginName}Commands.class, commandRegFactory);
 
-		getEngine().getEventManager().registerEvents(new EListener(this), this);
+		// Register Events
+		getEngine().getEventManager().registerEvents(new ${pluginName}Listener(this), this);
+
 		getLogger().info("enabled.");
 	}
 
@@ -42,15 +44,15 @@ public class ${artifactId}Plugin extends CommonPlugin {
 		getLogger().info("disabled.");
 	}
 
-	private static void setInstance(${artifactId}Plugin plugin) {
+	private static void setInstance(${pluginName}Plugin plugin) {
 		instance = plugin;
 	}
 
-	public static ${artifactId}Plugin getInstance() {
+	public static ${pluginName}Plugin getInstance() {
 		return instance;
 	}
 
-	public ${artifactId}Configuration getConfig() {
+	public ${pluginName}Configuration getConfig() {
 		return config;
 	}
 }
