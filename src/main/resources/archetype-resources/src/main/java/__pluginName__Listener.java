@@ -1,4 +1,3 @@
-
 package ${package};
 
 import org.spout.api.event.EventHandler;
@@ -6,12 +5,12 @@ import org.spout.api.event.player.PlayerChatEvent;
 import org.spout.api.event.Listener;
 
 /**
- * A Basic Event Listener for Spout
+ * Provides an example of an event listener class.
  */
-public class EListener implements Listener {
-	private ${artifactId} plugin;
+public class ${pluginName}Listener implements Listener {
+	private ${pluginName}Plugin plugin;
 
-	public EListener(${artifactId} instance) {
+	public ${pluginName}Listener(${pluginName}Plugin instance) {
 		this.plugin = instance;
 	}
 	

@@ -4,14 +4,14 @@
 	<groupId>${groupId}</groupId>
 	<artifactId>${artifactId}</artifactId>
 	<version>${version}</version>
-	<name>${artifactId}</name>
+	<name>${pluginName}</name>
 	<url>http://maven.apache.org</url>
 	<inceptionYear>2013</inceptionYear>
-	<description>Set your description</description>
+	<description>Set your description here.</description>
     
 	<organization>
-		<name>yourgroup</name>
-		<url>http://none.right.now.com</url>
+		<name>Set your organization name here.</name>
+		<url>http://set.your.url.here</url>
 	</organization>
 
 	<!-- Build properties -->
@@ -20,7 +20,7 @@
 		<currentYear>2013</currentYear>
 		<spoutVersion>dev-SNAPSHOT</spoutVersion>
 		<buildNumber>0</buildNumber>
-		<mainClass>${package}.${artifactId}</mainClass>
+		<mainClass>${package}.${pluginName}Plugin</mainClass>
 		<!-- add plugin dependancies in the format of Vanilla,Test  -->
 		<!-- Do not add the [] around the dependancies here, that is handled at compile -->
 		<depends></depends>

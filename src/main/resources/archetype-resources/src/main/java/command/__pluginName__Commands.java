@@ -1,16 +1,20 @@
-package ${package}.commands;
+package ${package}.command;
 
 import org.spout.api.command.annotated.CommandPermissions;
 import org.spout.api.command.CommandContext;
 import org.spout.api.command.CommandSource;
 import org.spout.api.command.annotated.Command;
 import org.spout.api.exception.CommandException;
-import ${package}.${artifactId};
 
-public class PlayerCommands {
-	private final ${artifactId} plugin;
+import ${package}.${pluginName}Plugin;
 
-	public PlayerCommands(${artifactId} instance) {
+/**
+ * Provides an example of a class to hold commands.
+ */
+public class ${pluginName}Commands {
+	private final ${pluginName}Plugin plugin;
+
+	public ${pluginName}Commands(${pluginName}Plugin instance) {
 		this.plugin = instance;
 	}
 

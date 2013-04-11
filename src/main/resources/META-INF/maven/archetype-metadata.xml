@@ -16,4 +16,17 @@
       </includes>
     </fileSet>
   </fileSets>
+
+  <requiredProperties>
+    
+    <requiredProperty key="package">
+      <defaultValue>${groupId}.${artifactId}</defaultValue>
+    </requiredProperty>
+    
+    <requiredProperty key="pluginName">
+      <defaultValue>${artifactId}</defaultValue>
+    </requiredProperty>
+  
+  </requiredProperties>
+
 </archetype-descriptor>
