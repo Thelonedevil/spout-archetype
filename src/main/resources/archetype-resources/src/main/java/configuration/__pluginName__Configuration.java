@@ -11,7 +11,7 @@ import java.io.File;
 import java.util.logging.Level;
 
 /**
- * Provides an example of a class that has a confirguration file.
+ * Provides an example of a class that has a configuration file.
  */
 public class ${pluginName}Configuration extends ConfigurationHolderConfiguration {
 
