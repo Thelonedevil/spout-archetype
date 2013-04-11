@@ -24,7 +24,7 @@
     </requiredProperty>
     
     <requiredProperty key="pluginName">
-      <defaultValue>JuggernautBlocks</defaultValue>
+      <defaultValue>${artifactId}</defaultValue>
     </requiredProperty>
   
   </requiredProperties>
