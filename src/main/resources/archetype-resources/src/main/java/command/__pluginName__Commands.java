@@ -18,9 +18,14 @@ public class ${pluginName}Commands {
 		this.plugin = instance;
 	}
 
-	@Command(aliases = {"command", "cmd"}, usage = "No Usage, replace this command", desc = "This is just an Example. Replace it.", min = 0, max = 0)
+	/**
+	 * Provides an example command that can be issued to the Spout server.
+	 */
+	@Command(aliases = {"command", "cmd"}, desc = "This is an example of what a command might look like. Try it out with /cmd !", min = 0, max = 0)
 	@CommandPermissions("${artifactId}.some.permission")
-	public void aCommand(CommandContext args, CommandSource source) throws CommandException {
-		// Do Some Command
+	public void exampleCommand(CommandContext args, CommandSource source) throws CommandException {
+		
+		// Calling this command will send whoever issued it the message below.
+		source.sendMessage("The ${pluginName} plugin command has been successfully issued.");
 	}
 }
