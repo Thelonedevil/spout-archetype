@@ -24,7 +24,7 @@ Repository Settings
 
 * ArtifactId = spout-archetype
 * Repository = http://repository-tenowg.forge.cloudbees.com/release/
-* Version = 1.0
+* Version = 1.1
 * GroupID = com.thedemgel
 
 Eclipse Tutorial
