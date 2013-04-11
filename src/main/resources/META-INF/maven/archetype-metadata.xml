@@ -19,12 +19,19 @@
 
   <requiredProperties>
     
+    <!-- Allows the user to specify a custom package structure. -->
     <requiredProperty key="package">
       <defaultValue>${groupId}.${artifactId}</defaultValue>
     </requiredProperty>
     
+    <!-- Allows the user to specify a name for their plugin that is different from the artifactId. -->
     <requiredProperty key="pluginName">
       <defaultValue>${artifactId}</defaultValue>
+    </requiredProperty>
+
+    <!-- For Vanilla-dependent plugins. When true, Vanilla is included as a dependency. -->
+    <requiredProperty key="includeVanilla"> 
+      <defaultValue>false</defaultValue>
     </requiredProperty>
   
   </requiredProperties>

@@ -1,6 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
+	<!-- Project Details -->
 	<groupId>${groupId}</groupId>
 	<artifactId>${artifactId}</artifactId>
 	<version>${version}</version>
@@ -18,16 +20,23 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<currentYear>2013</currentYear>
-		<spoutVersion>dev-SNAPSHOT</spoutVersion>
 		<buildNumber>0</buildNumber>
-		<mainClass>${package}.${pluginName}Plugin</mainClass>
+		<mainClass>${package}.${pluginName}Plugin</mainClass>		
+		<spoutVersion>dev-SNAPSHOT</spoutVersion>
 		<!-- add plugin dependancies in the format of Vanilla,Test  -->
 		<!-- Do not add the [] around the dependancies here, that is handled at compile -->
+#if (${includeVanilla} == "true" || ${includeVanilla} == "yes" || ${includeVanilla} == "y")
+		<depends>Vanilla</depends>
+		<vanillaVersion>dev-SNAPSHOT</vanillaVersion>
+#else
 		<depends></depends>
+#end
 	</properties>
 
-	<!-- Dependency repositories -->
+	<!-- Repositories -->
 	<repositories>
+		
+		<!-- Spout's Maven Repository -->
 		<repository>
 			<id>spout-repo</id>
 			<url>http://repo.spout.org</url>
@@ -36,17 +45,32 @@
 				<updatePolicy>always</updatePolicy>
 			</snapshots>
 		</repository>
+
 	</repositories>
     
+	<!-- Dependencies -->
 	<dependencies>
-		<!-- Provided by third-party -->
+		
+		<!-- The Spout API -->
 		<dependency>
 			<groupId>org.spout</groupId>
 			<artifactId>spoutapi</artifactId>
 			<version>${spoutVersion}</version>
 			<scope>provided</scope>
 		</dependency>
+		
+#if (${includeVanilla} == "true" || ${includeVanilla} == "yes" || ${includeVanilla} == "y")
+		<!-- The Vanilla Plugin -->
+		<dependency>
+			<groupId>org.spout</groupId>
+			<artifactId>vanilla</artifactId>
+			<version>${vanillaVersion}</version>
+			<scope>provided</scope>
+		</dependency>
+#end
 	</dependencies>
+	
+	<!-- Builds -->
 	<build>
 		<defaultGoal>clean install</defaultGoal>
 
