@@ -15,6 +15,12 @@
         <include>**/*.*</include>
       </includes>
     </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory></directory>
+      <includes>
+        <include>HEADER.txt</include>
+      </includes>
+    </fileSet>
   </fileSets>
 
   <requiredProperties>
@@ -31,6 +37,11 @@
 
     <!-- For Vanilla-dependent plugins. When true, Vanilla is included as a dependency. -->
     <requiredProperty key="includeVanilla"> 
+      <defaultValue>false</defaultValue>
+    </requiredProperty>
+
+    <!-- Allows automatic generation of a Spout-plugin-themed header for each file. -->
+    <requiredProperty key="includeHeaders"> 
       <defaultValue>false</defaultValue>
     </requiredProperty>
   

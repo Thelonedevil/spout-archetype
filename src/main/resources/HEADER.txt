@@ -1,0 +1,12 @@
+#**
+ Note: due to the limitations of the Velocity engine, this file must remain 
+ in the root resources/ directory.
+*###
+/*
+#if (${includeVanilla} == "true" || ${includeVanilla} == "yes" || ${includeVanilla} == "y")
+ * This file is part of the Spout plugin ${pluginName}. It also has a hard 
+ * dependency on the Vanilla project.
+#else
+ * This file is part of the Spout plugin ${pluginName}.
+#end
+ */

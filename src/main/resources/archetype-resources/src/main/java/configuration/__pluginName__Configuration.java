@@ -1,3 +1,13 @@
+#**
+ This file is part of the Spout Plugin Archetype. If you have found this useful
+ or would like to offer suggestions, please contact me.
+
+ @author Craig <tenowg@thedemgel.com>
+ @author Atheriel
+*###
+#if (${includeHeaders} == "true" || ${includeHeaders} == "yes" || ${includeHeaders} == "y")
+#parse("HEADER.txt")
+#end
 package ${package}.configuration;
 
 import org.spout.api.exception.ConfigurationException;
