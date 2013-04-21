@@ -1,3 +1,13 @@
+#**
+ This file is part of the Spout Plugin Archetype. If you have found this useful
+ or would like to offer suggestions, please contact me.
+
+ @author Craig <tenowg@thedemgel.com>
+ @author Atheriel
+*###
+#if (${includeHeaders} == "true" || ${includeHeaders} == "yes" || ${includeHeaders} == "y")
+#parse("HEADER.txt")
+#end
 package ${package};
 
 import org.spout.api.command.CommandRegistrationsFactory;
@@ -11,8 +21,7 @@ import ${package}.command.${pluginName}Commands;
 import ${package}.configuration.${pluginName}Configuration;
 
 /**
- * If you have found this useful, please let me know.
- * @author Craig <tenowg at thedemgel.com>
+ * Defines the main class of the plugin.
  */
 public class ${pluginName}Plugin extends CommonPlugin {
 	private static ${pluginName}Plugin instance;
