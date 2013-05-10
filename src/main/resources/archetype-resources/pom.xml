@@ -21,7 +21,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<currentYear>2013</currentYear>
 		<buildNumber>0</buildNumber>
-		<mainClass>${package}.${pluginName}Plugin</mainClass>		
+		<mainClass>${package}.${pluginName}Plugin</mainClass>
+		<load>startup</load>
+		<platform>BOTH</platform>
 		<spoutVersion>dev-SNAPSHOT</spoutVersion>
 		<!-- add plugin dependancies in the format of Vanilla,Test  -->
 		<!-- Do not add the [] around the dependancies here, that is handled at compile -->

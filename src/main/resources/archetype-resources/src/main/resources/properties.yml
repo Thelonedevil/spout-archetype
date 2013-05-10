@@ -6,5 +6,5 @@ website: ${project.organization.url}
 
 main: ${mainClass}
 depends: [${depends}]
-load: startup
-platform: BOTH
+load: ${load}
+platform: ${platform}
