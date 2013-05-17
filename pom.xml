@@ -11,6 +11,10 @@
 	<url>http://www.spout.org</url>
 	<description>Maven archetype for a Spout plugin, containing all the necessary files to start your own plugin.</description>
 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
 	<build> 
 		<extensions> 
 			<extension> 

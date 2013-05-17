@@ -23,7 +23,9 @@
 		<buildNumber>0</buildNumber>
 		<mainClass>${package}.${pluginName}Plugin</mainClass>
 		<load>startup</load>
-		<platform>BOTH</platform>
+		<!-- The value of this node can be either CLIENT, SERVER, PROXY, or ALL. --> 
+		<!-- Unless your server runs on the Spout client, then select SERVER. -->
+		<platform>SERVER</platform>
 		<spoutVersion>dev-SNAPSHOT</spoutVersion>
 		<!-- add plugin dependancies in the format of Vanilla,Test  -->
 		<!-- Do not add the [] around the dependancies here, that is handled at compile -->
@@ -41,7 +43,7 @@
 		<!-- Spout's Maven Repository -->
 		<repository>
 			<id>spout-repo</id>
-			<url>http://repo.spout.org</url>
+			<url>http://nexus.spout.org/content/groups/public</url>
 			<snapshots>
 				<enabled>true</enabled>
 				<updatePolicy>always</updatePolicy>
