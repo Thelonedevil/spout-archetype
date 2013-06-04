@@ -31,7 +31,7 @@
 		<!-- Do not add the [] around the dependancies here, that is handled at compile -->
 #if (${includeVanilla} == "true" || ${includeVanilla} == "yes" || ${includeVanilla} == "y")
 		<depends>Vanilla</depends>
-		<vanillaVersion>dev-SNAPSHOT</vanillaVersion>
+		<vanillaVersion>1.5.2-SNAPSHOT</vanillaVersion>
 #else
 		<depends></depends>
 #end
