@@ -10,13 +10,10 @@
 #end
 package ${package};
 
-import org.spout.api.command.CommandRegistrationsFactory;
-import org.spout.api.command.RootCommand;
-import org.spout.api.command.annotated.AnnotatedCommandRegistrationFactory;
-import org.spout.api.command.annotated.SimpleAnnotatedCommandExecutorFactory;
-import org.spout.api.command.annotated.SimpleInjector;
 import org.spout.api.plugin.CommonPlugin;
+import org.spout.api.command.annotated.AnnotatedCommandExecutorFactory;
 
+import ${package}.command.${pluginName}BaseCommand;
 import ${package}.command.${pluginName}Commands;
 import ${package}.configuration.${pluginName}Configuration;
 
@@ -37,10 +34,10 @@ public class ${pluginName}Plugin extends CommonPlugin {
 
 	@Override
 	public void onEnable() {
-		// Register Commands
-		CommandRegistrationsFactory<Class<?>> commandRegFactory = new AnnotatedCommandRegistrationFactory(getEngine(), new SimpleInjector(this), new SimpleAnnotatedCommandExecutorFactory());
-		RootCommand root = getEngine().getRootCommand();
-		root.addSubCommands(this, ${pluginName}Commands.class, commandRegFactory);
+		// Register Base Command (/command)
+		AnnotatedCommandExecutorFactory.create(new ${pluginName}BaseCommand(this));
+		// Register Commands under Base Command (/command command)
+		AnnotatedCommandExecutorFactory.create(new ${pluginName}Commands(this), getEngine().getCommandManager().getCommand("command"));
 
 		// Register Events
 		getEngine().getEventManager().registerEvents(new ${pluginName}Listener(this), this);
