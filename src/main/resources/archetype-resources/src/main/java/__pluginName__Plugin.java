@@ -10,7 +10,7 @@
 #end
 package ${package};
 
-import org.spout.api.plugin.CommonPlugin;
+import org.spout.api.plugin.Plugin;
 import org.spout.api.command.annotated.AnnotatedCommandExecutorFactory;
 
 import ${package}.command.${pluginName}BaseCommand;
@@ -20,7 +20,7 @@ import ${package}.configuration.${pluginName}Configuration;
 /**
  * Defines the main class of the plugin.
  */
-public class ${pluginName}Plugin extends CommonPlugin {
+public class ${pluginName}Plugin extends Plugin {
 	private static ${pluginName}Plugin instance;
 	private ${pluginName}Configuration config;
 

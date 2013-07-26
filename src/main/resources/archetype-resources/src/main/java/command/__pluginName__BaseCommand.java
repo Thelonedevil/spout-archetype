@@ -11,11 +11,10 @@
 #end
 package ${package}.command;
 
+import org.spout.api.command.annotated.CommandDescription;
 import org.spout.api.command.annotated.Permissible;
 import org.spout.api.command.CommandArguments;
 import org.spout.api.command.CommandSource;
-import org.spout.api.command.annotated.Command;
-import org.spout.api.command.annotated.Permissible;
 import org.spout.api.exception.CommandException;
 
 import ${package}.${pluginName}Plugin;
@@ -33,7 +32,7 @@ public class ${pluginName}BaseCommand {
 	/**
 	 * Provides an example command that can be issued to the Spout server.
 	 */
-	@Command(aliases = {"command", "cmd"}, desc = "This is an example of what a command might look like. Try it out with /cmd !", min = 0, max = 0)
+	@CommandDescription(aliases = {"command", "cmd"}, desc = "This is an example of what a command might look like. Try it out with /cmd !")
 	@Permissible("${artifactId}.some.permission")
 	public void exampleBaseCommand(CommandSource source, CommandArguments args) throws CommandException {
 		
