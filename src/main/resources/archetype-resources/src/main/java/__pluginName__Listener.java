@@ -23,7 +23,7 @@ public class ${pluginName}Listener implements Listener {
 	public ${pluginName}Listener(${pluginName}Plugin instance) {
 		this.plugin = instance;
 	}
-	
+
 	@EventHandler
 	public void onPlayerChat(PlayerChatEvent event) {
 		// Do Something on PlayerChatEvent

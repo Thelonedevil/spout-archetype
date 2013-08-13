@@ -1,4 +1,3 @@
-
 #**
  This file is part of the Spout Plugin Archetype. If you have found this useful
  or would like to offer suggestions, please contact me.
@@ -31,11 +30,13 @@ public class ${pluginName}BaseCommand {
 
 	/**
 	 * Provides an example command that can be issued to the Spout server.
+	 * @param source CommandSource
+	 * @param args CommandArguments
+	 * @throws CommandException
 	 */
-	@CommandDescription(aliases = {"command", "cmd"}, desc = "This is an example of what a command might look like. Try it out with /cmd !")
+	@CommandDescription(aliases = { "command", "cmd" }, desc = "This is an example of what a command might look like. Try it out with /cmd !")
 	@Permissible("${artifactId}.some.permission")
 	public void exampleBaseCommand(CommandSource source, CommandArguments args) throws CommandException {
-		
 		// Calling this command will send whoever issued it the message below.
 		source.sendMessage("The ${pluginName} plugin base command has been successfully issued. (Type a sub-command)");
 	}

@@ -25,7 +25,7 @@ public class ${pluginName}Plugin extends Plugin {
 	private ${pluginName}Configuration config;
 
 	@Override
-	public void onLoad() {
+	public final void onLoad() {
 		setInstance(this);
 		config = new ${pluginName}Configuration(getDataFolder());
 		config.load();
@@ -33,7 +33,7 @@ public class ${pluginName}Plugin extends Plugin {
 	}
 
 	@Override
-	public void onEnable() {
+	public final void onEnable() {
 		// Register Base Command (/command)
 		AnnotatedCommandExecutorFactory.create(new ${pluginName}BaseCommand(this));
 		// Register Commands under Base Command (/command command)
@@ -46,7 +46,7 @@ public class ${pluginName}Plugin extends Plugin {
 	}
 
 	@Override
-	public void onDisable() {
+	public final void onDisable() {
 		getLogger().info("disabled.");
 	}
 
@@ -58,7 +58,7 @@ public class ${pluginName}Plugin extends Plugin {
 		return instance;
 	}
 
-	public ${pluginName}Configuration getConfig() {
+	public final ${pluginName}Configuration getConfig() {
 		return config;
 	}
 }

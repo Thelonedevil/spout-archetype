@@ -1,50 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="mcdemgel"
-    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <fileSets>
-    <fileSet filtered="true" packaged="true" encoding="UTF-8">
-      <directory>src/main/java</directory>
-      <includes>
-        <include>**/*.java</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>src/main/resources</directory>
-      <includes>
-        <include>**/*.*</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory></directory>
-      <includes>
-        <include>HEADER.txt</include>
-      </includes>
-    </fileSet>
-  </fileSets>
+		      xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+		      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<fileSets>
+		<fileSet filtered="true" packaged="true" encoding="UTF-8">
+			<directory>src/main/java</directory>
+			<includes>
+				<include>**/*.java</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>src/main/resources</directory>
+			<includes>
+				<include>**/*.*</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory></directory>
+			<includes>
+				<include>HEADER.txt</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="false" encoding="UTB-8">
+			<directory>src/site</directory>
+			<inlcude>**/*.*</inlcude>
+		</fileSet>
+	</fileSets>
 
-  <requiredProperties>
+	<requiredProperties>
     
-    <!-- Allows the user to specify a custom package structure. -->
-    <requiredProperty key="package">
-      <defaultValue>${groupId}.${artifactId}</defaultValue>
-    </requiredProperty>
+		<!-- Allows the user to specify a custom package structure. -->
+		<requiredProperty key="package">
+			<defaultValue>${groupId}.${artifactId}</defaultValue>
+		</requiredProperty>
     
-    <!-- Allows the user to specify a name for their plugin that is different from the artifactId. -->
-    <requiredProperty key="pluginName">
-      <defaultValue>${artifactId}</defaultValue>
-    </requiredProperty>
+		<!-- Allows the user to specify a name for their plugin that is different from the artifactId. -->
+		<requiredProperty key="pluginName">
+			<defaultValue>${artifactId}</defaultValue>
+		</requiredProperty>
 
-    <!-- For Vanilla-dependent plugins. When true, Vanilla is included as a dependency. -->
-    <requiredProperty key="includeVanilla"> 
-      <defaultValue>false</defaultValue>
-    </requiredProperty>
+		<!-- For Vanilla-dependent plugins. When true, Vanilla is included as a dependency. -->
+		<requiredProperty key="includeVanilla"> 
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
 
-    <!-- Allows automatic generation of a Spout-plugin-themed header for each file. -->
-    <requiredProperty key="includeHeaders"> 
-      <defaultValue>false</defaultValue>
-    </requiredProperty>
+		<!-- Allows automatic generation of a Spout-plugin-themed header for each file. -->
+		<requiredProperty key="includeHeaders"> 
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+    
+		<!-- Allows automatic generation of a Maven WebSite -->
+		<requiredProperty key="mavensite">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
   
-  </requiredProperties>
+	</requiredProperties>
 
 </archetype-descriptor>

@@ -30,11 +30,13 @@ public class ${pluginName}Commands {
 
 	/**
 	 * Provides an example command that can be issued to the Spout server.
+	 * @param source CommandSource
+	 * @param args CommandArguments
+	 * @throws CommandException
 	 */
-	@CommandDescription(aliases = {"command", "cmd"}, desc = "This is an example of what a command might look like. Try it out with /cmd !")
+	@CommandDescription(aliases = { "command", "cmd" }, desc = "This is an example of what a command might look like. Try it out with /cmd !")
 	@Permissible("${artifactId}.some.permission")
 	public void exampleCommand(CommandSource source, CommandArguments args) throws CommandException {
-		
 		// Calling this command will send whoever issued it the message below.
 		source.sendMessage("The ${pluginName} plugin command has been successfully issued.");
 	}

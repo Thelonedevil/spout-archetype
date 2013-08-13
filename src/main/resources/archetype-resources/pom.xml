@@ -10,7 +10,41 @@
 	<url>http://maven.apache.org</url>
 	<inceptionYear>2013</inceptionYear>
 	<description>Set your description here.</description>
-    
+	
+	<developers>
+		<developer>
+			<id>develeper's id</id>
+			<name>Developer's name</name>
+			<timezone>5</timezone>
+			<url>http://to.some.profile.page.com</url>
+		</developer>
+	</developers>
+
+	<!-- This will require an entry in settings.xml in the .m2 directory -->
+	<distributionManagement>
+		<site>
+			<id>github-project-site</id>
+			<url>gitsite:git@github.com/githubuser/GitHubRepo.git</url>
+		</site>
+	</distributionManagement>
+
+	<scm>
+		<connection>scm:git://github.com/githubuser/GitHubRepo.git</connection>
+		<developerConnection>scm:git:git@github.com:githubuser/GitHubRepo.git</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/githubuser/GitHubRepo</url>
+	</scm>
+
+	<ciManagement>
+		<system>CI Name</system>
+		<url>https://url.to.come.ci.com/job/CIJobName/</url>
+	</ciManagement>
+
+	<issueManagement>
+		<system>GitHub Issues Page</system>
+		<url>https://github.com/githubuser/GitHubRepo/issues</url>
+	</issueManagement>
+
 	<organization>
 		<name>Set your organization name here.</name>
 		<url>http://set.your.url.here</url>
@@ -31,7 +65,7 @@
 		<!-- Do not add the [] around the dependancies here, that is handled at compile -->
 #if (${includeVanilla} == "true" || ${includeVanilla} == "yes" || ${includeVanilla} == "y")
 		<depends>Vanilla</depends>
-		<vanillaVersion>1.5.2-SNAPSHOT</vanillaVersion>
+		<vanillaVersion>1.6.2-SNAPSHOT</vanillaVersion>
 #else
 		<depends></depends>
 #end
@@ -76,6 +110,26 @@
 	
 	<!-- Builds -->
 	<build>
+#if (${mavensite} == "true" || ${mavensite} == "yes" || ${mavensite} == "y")
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.scm</groupId>
+				<artifactId>maven-scm-provider-gitexe</artifactId>
+				<version>1.8.1</version>
+			</extension>
+			<extension>
+				<groupId>org.apache.maven.scm</groupId>
+				<artifactId>maven-scm-manager-plexus</artifactId>
+				<version>1.8.1</version>
+			</extension>
+			<extension>
+				<groupId>org.kathrynhuxtable.maven.wagon</groupId>
+				<artifactId>wagon-gitsite</artifactId>
+				<version>0.3.1</version>
+			</extension>
+		</extensions>
+#end
+		
 		<defaultGoal>clean install</defaultGoal>
 
 		<!-- Resources to include -->
@@ -124,6 +178,111 @@
 					</execution>
 				</executions>
 			</plugin>
+			
+#if (${mavensite} == "true" || ${mavensite} == "yes" || ${mavensite} == "y")
+			<!-- plugins required for maven-site plugin and decent theme builder -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.3</version>
+				<dependencies>
+					<dependency>
+						<groupId>lt.velykis.maven.skins</groupId>
+						<artifactId>reflow-velocity-tools</artifactId>
+						<version>1.0.0</version>
+					</dependency>
+					<!-- Reflow skin requires Velocity >= 1.7 -->
+					<dependency>
+						<groupId>org.apache.velocity</groupId>
+						<artifactId>velocity</artifactId>
+						<version>1.7</version>
+					</dependency>
+					<dependency>
+						<groupId>org.apache.maven.doxia</groupId>
+						<artifactId>doxia-module-markdown</artifactId>
+						<version>1.4</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<generateReports>true</generateReports>
+					<inputEncoding>UTF-8</inputEncoding>
+					<outputEncoding>UTF-8</outputEncoding>
+				</configuration>
+			</plugin>
+#end
 		</plugins>
 	</build>
+	
+#if (${mavensite} == "true" || ${mavensite} == "yes" || ${mavensite} == "y")
+	<!-- reporting section needed for maven-site automatic page building (includes javadoc, and all reports) -->
+	<reporting>
+		<plugins>
+			<plugin>
+				<artifactId>maven-changelog-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<configuration>
+					<configLocation>${basedir}/src/main/resources/checkstyle.xml</configLocation>
+				</configuration>
+				<version>2.10</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.3</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.0.1</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-plugin-plugin</artifactId>
+				<version>3.2</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.7</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>cim</report>
+							<report>distribution-management</report>
+							<report>index</report>
+							<report>issue-tracking</report>
+							<!-- <report>license</report> -->
+							<report>project-team</report>
+							<report>scm</report>
+							<report>summary</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.15</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>2.5.2</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jdepend-maven-plugin</artifactId>
+				<version>2.0-beta-2</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>taglist-maven-plugin</artifactId>
+				<version>2.4</version>
+			</plugin>
+		</plugins>
+	</reporting>
+#end
+
 </project>
