@@ -2,6 +2,29 @@
 	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	
+#if (${mavensite} == "true" || ${mavensite} == "yes" || ${mavensite} == "y")	
+	<!-- IF YOU CHOOSE MAVENSITE PLEASE ADD THIS TO YOUR SETTINGS.XML -->
+	<!-- 
+		<settings>
+		...
+			<servers>
+				<server>
+					<id>github-project-site</id>
+					<username>username</username>
+					<password>password</password>
+					
+					OR
+					
+					<id>github-project-site</id>
+					<password>OAuthToken</password>
+				</server>
+			</servers>
+		...
+		</settings>
+	-->
+	<!-- EMD MAVENSITE INSTRUCTIONS -->
+#end
+
 	<!-- Project Details -->
 	<groupId>${groupId}</groupId>
 	<artifactId>${artifactId}</artifactId>
@@ -19,14 +42,6 @@
 			<url>http://to.some.profile.page.com</url>
 		</developer>
 	</developers>
-
-	<!-- This will require an entry in settings.xml in the .m2 directory -->
-	<distributionManagement>
-		<site>
-			<id>github-project-site</id>
-			<url>gitsite:git@github.com/githubuser/GitHubRepo.git</url>
-		</site>
-	</distributionManagement>
 
 	<scm>
 		<connection>scm:git://github.com/githubuser/GitHubRepo.git</connection>
@@ -109,27 +124,7 @@
 	</dependencies>
 	
 	<!-- Builds -->
-	<build>
-#if (${mavensite} == "true" || ${mavensite} == "yes" || ${mavensite} == "y")
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.scm</groupId>
-				<artifactId>maven-scm-provider-gitexe</artifactId>
-				<version>1.8.1</version>
-			</extension>
-			<extension>
-				<groupId>org.apache.maven.scm</groupId>
-				<artifactId>maven-scm-manager-plexus</artifactId>
-				<version>1.8.1</version>
-			</extension>
-			<extension>
-				<groupId>org.kathrynhuxtable.maven.wagon</groupId>
-				<artifactId>wagon-gitsite</artifactId>
-				<version>0.3.1</version>
-			</extension>
-		</extensions>
-#end
-		
+	<build>		
 		<defaultGoal>clean install</defaultGoal>
 
 		<!-- Resources to include -->
@@ -209,6 +204,27 @@
 					<outputEncoding>UTF-8</outputEncoding>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.8</version>
+				<executions>
+					<execution>
+						<configuration>
+							<server>github-project-site</server>
+							<repositoryName>${project.name}</repositoryName>
+							<repositoryOwner>${project.organization.name}</repositoryOwner>
+							<branch>refs/heads/gh-pages</branch>
+							<merge>true</merge>
+							<message>Site for ${project.version}-b${buildNumber}</message>
+						</configuration>
+						<phase>site</phase>
+						<goals>
+							<goal>site</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 #end
 		</plugins>
 	</build>
@@ -251,7 +267,7 @@
 					<reportSet>
 						<reports>
 							<report>cim</report>
-							<report>distribution-management</report>
+							<!--<report>distribution-management</report>-->
 							<report>index</report>
 							<report>issue-tracking</report>
 							<!-- <report>license</report> -->
@@ -284,5 +300,4 @@
 		</plugins>
 	</reporting>
 #end
-
 </project>
