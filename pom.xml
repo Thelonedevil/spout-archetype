@@ -2,14 +2,14 @@
 	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">	
 	<modelVersion>4.0.0</modelVersion>
 	
-	<groupId>com.thedemgel</groupId>
-	<artifactId>spout-archetype</artifactId>
+	<groupId>com.github.thelonedevil</groupId>
+	<artifactId>TLD-archetype</artifactId>
 	<version>1.2</version>
 	<packaging>maven-archetype</packaging>
 	
-	<name>Spout Plugin Archetype</name>
+	<name>TLD Plugin Archetype</name>
 	<url>http://www.spout.org</url>
-	<description>Maven archetype for a Spout plugin, containing all the necessary files to start your own plugin.</description>
+	<description>Maven archetype for a Spout TLD plugin, containing all the necessary files to start your own plugin.</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

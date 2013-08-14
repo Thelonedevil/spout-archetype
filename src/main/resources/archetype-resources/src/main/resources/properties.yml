@@ -5,6 +5,6 @@ author: ${project.organization.name}
 website: ${project.organization.url}
 
 main: ${mainClass}
-depends: [${depends}]
+depends: [${depends},TLDCommonlib]
 load: ${load}
 platform: ${platform}

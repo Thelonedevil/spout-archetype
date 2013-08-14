@@ -15,20 +15,16 @@ import org.spout.api.command.annotated.AnnotatedCommandExecutorFactory;
 
 import ${package}.command.${pluginName}BaseCommand;
 import ${package}.command.${pluginName}Commands;
-import ${package}.configuration.${pluginName}Configuration;
 
 /**
  * Defines the main class of the plugin.
  */
 public class ${pluginName}Plugin extends Plugin {
 	private static ${pluginName}Plugin instance;
-	private ${pluginName}Configuration config;
 
 	@Override
 	public final void onLoad() {
 		setInstance(this);
-		config = new ${pluginName}Configuration(getDataFolder());
-		config.load();
 		getLogger().info("loaded.");
 	}
 
@@ -57,8 +53,5 @@ public class ${pluginName}Plugin extends Plugin {
 	public static ${pluginName}Plugin getInstance() {
 		return instance;
 	}
-
-	public final ${pluginName}Configuration getConfig() {
-		return config;
-	}
+	
 }
